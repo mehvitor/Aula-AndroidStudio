@@ -18,6 +18,8 @@ import vitortellesescame.com.exemploaulacomplementar.databinding.ActivityMainBin
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +33,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
 
+
+
+
+        Button btn = findViewById(R.id.botao);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Parabéns você conseguiu", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
