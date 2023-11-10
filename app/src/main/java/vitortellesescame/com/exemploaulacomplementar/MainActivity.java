@@ -1,11 +1,15 @@
 package vitortellesescame.com.exemploaulacomplementar;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.core.view.WindowCompat;
@@ -22,6 +26,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
+
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
@@ -36,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
+        //botão (AULA)
         Button btn = findViewById(R.id.botao);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +53,43 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Parabéns você conseguiu", Toast.LENGTH_SHORT).show();
             }
         });
+
+        Button btn2 = findViewById(R.id.botao2);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Main3Activity.class);
+                intent.putExtra("Extra", "Extra passado da Activity principal");
+                startActivity(intent);
+            }
+        });
+
+
+        Button btn3 = findViewById(R.id.botao3);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.dotabuff.com/players/9321545"));
+                startActivity(browserIntent);
+            }
+        });
+
+
+        Button btn4 = findViewById(R.id.botao4);
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Main3Activity.class);
+                intent.putExtra("Extra", "Extra novamente passado a partir da Activity principal");
+                startActivityForResult(intent, 12);
+            }
+        });
+
+
+
+
+
+
 
 
 
