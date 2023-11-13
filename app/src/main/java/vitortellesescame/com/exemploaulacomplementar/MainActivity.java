@@ -1,7 +1,12 @@
 package vitortellesescame.com.exemploaulacomplementar;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -40,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(binding.toolbar);
 
 
-
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        intentFilter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        registerReceiver(receiver, intentFilter);
+        Log.d(TAG, "OnCreate");
 
 
 
@@ -95,8 +103,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button btn6 = findViewById(R.id.botao6);
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), bancoDeDados.class));
+            }
+        });
 
-
+        Button btn7 = findViewById(R.id.botao7);
+        btn7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), TabsAcitivity.class));
+            }
+        });
 
 
 
@@ -132,5 +153,23 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d("AirplaneMode", "Service state changed. Action:  " + intent.getAction());
+
+            //Imprime todos os extras do Intent
+            Bundle bundle = intent.getExtras();
+            if (bundle != null){
+                for (String key : bundle.keySet()){
+                    Object value = bundle.get(key);
+                    Log.d(TAG, String.format("%s %s (%s)", key,
+                            value.toString(), value.getClass().getName()));
+                }
+            }
+        }
+    };
 
 }

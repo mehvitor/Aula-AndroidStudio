@@ -27,7 +27,7 @@ public class LayoutActivity extends AppCompatActivity {
             }
         });
 
-
+        //AQUI VOLTEI DE UMA ACTIVITY PARA A ACTIVITY INICIAL (TELA INICIAL)
         Button btn6 = findViewById(R.id.button6);
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
