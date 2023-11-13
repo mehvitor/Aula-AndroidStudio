@@ -86,7 +86,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
+        //AQUI EU ACESSEI UMA NOVA ACTIVITY ( DEVO FAZER ISSO NA ATIVIDADE REFLEXIVA!!!!!!!)
+        Button btn5 = findViewById(R.id.botao5);
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), LayoutActivity.class));
+            }
+        });
 
 
 

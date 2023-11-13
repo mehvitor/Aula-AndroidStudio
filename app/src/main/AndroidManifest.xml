@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ExemploAulaComplementar"
         tools:targetApi="31">
         <activity
+            android:name=".LayoutActivity"
+            android:exported="false" />
+        <activity
             android:name=".Main3Activity"
             android:exported="false"
             android:label="@string/title_activity_main3"
@@ -22,11 +25,13 @@
             android:exported="false"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.ExemploAulaComplementar" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.ExemploAulaComplementar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
